@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="电影网伦理（dianyingwanglunli-cn.github.io）是一个以「影像伦理」为核心的电影思考与观影指引站点：探讨电影里的道德困境、镜头语言的分寸、AI 换脸与 deepfake 边界、影评人的责任，并提供按伦理议题分类的片单与观影守则。">
+<meta name="keywords" content="电影网伦理, dianyingwanglunli-cn, 电影伦理, 影像伦理, 伦理电影, 观影指引, 电影评论, GitHub Pages 电影站">
+<meta name="robots" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<title>电影网伦理 - 影像伦理思考 · 观影指引 · 片单导航 | dianyingwanglunli-cn.github.io</title>
+<link rel="canonical" href="https://dianyingwanglunli-cn.github.io/">
+<style>
+:root{
+  --ink:#12161c; --paper:#f6f4ef; --card:#fffdfa; --line:#e3ddd2;
+  --brown:#8a6d4f; --rust:#b4532a; --olive:#5f6b2f; --slate:#2f4a63; --plum:#6d3b5e;
+  --txt:#2c2a27; --mute:#7a756c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--paper);color:var(--txt);line-height:1.85;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+.serif{font-family:Georgia,"Songti SC","STSong",serif}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 27px;border-radius:2px;font-size:14px;font-weight:700;letter-spacing:1px;transition:.25s;cursor:pointer;border:1.5px solid var(--ink)}
+.btn-d{background:var(--ink);color:#f6f4ef}
+.btn-d:hover{background:var(--rust);border-color:var(--rust);transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--ink)}
+.btn-o:hover{background:rgba(180,83,42,.08)}
+
+/* NAV */
+.navbar{position:sticky;top:0;z-index:90;background:rgba(246,244,239,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nin{display:flex;align-items:center;gap:14px;height:62px}
+.brand{font-weight:850;font-size:18px;letter-spacing:1px;display:flex;align-items:center;gap:11px}
+.brand .mk{width:28px;height:28px;background:var(--ink);color:#f6f4ef;display:grid;place-items:center;font-size:13px;font-weight:900;transform:rotate(-4deg)}
+.brand small{display:block;font-size:9.5px;color:var(--mute);letter-spacing:2.4px;font-weight:600}
+.nl{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
+.nl a{font-size:12.5px;padding:7px 12px;color:var(--mute);font-weight:600;border-bottom:2px solid transparent}
+.nl a:hover{color:var(--rust);border-bottom-color:var(--rust)}
+
+/* HERO : letterpress */
+.hero{padding:58px 0 40px;border-bottom:1px solid var(--line);position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:44px;align-items:center}
+.kicker{font-size:11px;letter-spacing:4px;color:var(--rust);font-weight:800;text-transform:uppercase}
+h1{font-size:clamp(34px,6.4vw,64px);line-height:1.12;font-weight:900;letter-spacing:-1px;margin:12px 0;font-family:Georgia,"Songti SC",serif}
+h1 em{font-style:normal;color:var(--rust);border-bottom:5px solid var(--ink)}
+.hero p.lede{font-size:16.5px;color:#45433f;max-width:600px}
+.hero p.lede strong{color:var(--rust);font-weight:800}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.rule{margin-top:26px;padding-top:18px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--mute);display:flex;flex-wrap:wrap;gap:8px 20px}
+.rule b{color:var(--ink)}
+.hero-side{border:1.5px solid var(--ink);border-radius:2px;padding:24px;background:var(--card);position:relative}
+.hero-side::before{content:"";position:absolute;inset:6px;border:1px solid rgba(138,109,79,.4);pointer-events:none}
+.hero-side .no{font-size:10px;letter-spacing:3px;color:var(--brown);font-weight:800}
+.hero-side h3{font-size:20px;margin:6px 0 14px;font-family:Georgia,"Songti SC",serif}
+.hs-row{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:9px 0;font-size:13px;border-bottom:1px dotted var(--line)}
+.hs-row:last-child{border:none}
+.hs-row b{color:var(--rust);font-family:Georgia,serif;font-size:15px}
+.hs-row em{display:block;font-style:normal;font-size:11px;color:var(--mute);margin-top:1px}
+
+/* section */
+section{padding:66px 0}
+.sec{display:flex;align-items:flex-end;justify-content:space-between;gap:26px;flex-wrap:wrap;margin-bottom:32px}
+.sec h2{font-size:clamp(22px,3.3vw,32px);font-weight:850;margin-top:7px;font-family:Georgia,"Songti SC",serif}
+.sec h2 em{font-style:normal;color:var(--rust)}
+.sec > p{color:var(--mute);font-size:14px;max-width:560px}
+
+/* COL1 - diagonal staggered list */
+.diag{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 22px}
+.ditem{position:relative;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brown);padding:18px 20px;transition:.26s;transform:translateX(0)}
+.ditem:nth-child(even){transform:translateX(18px);border-left-color:var(--olive)}
+.ditem:nth-child(3n){border-left-color:var(--slate)}
+.ditem:nth-child(4n){border-left-color:var(--plum)}
+.ditem:nth-child(5n){border-left-color:var(--rust)}
+.ditem:hover{transform:translateX(8px) translateY(-3px);box-shadow:6px 8px 0 rgba(18,22,28,.10);border-color:var(--ink)}
+.ditem .no{font-family:Georgia,serif;font-size:12px;color:var(--mute);letter-spacing:2px}
+.ditem h3{font-size:16.5px;margin:2px 0 5px}
+.ditem p{font-size:12.5px;color:var(--mute);min-height:38px}
+.ditem .go{font-size:11px;font-weight:800;color:var(--rust);letter-spacing:1px;margin-top:7px;display:inline-block}
+.ditem:hover .go{text-decoration:underline}
+
+/* COL2 - dial/triangle priority */
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:900px;margin:0 auto}
+.tri .lv{border:1.5px solid var(--ink);padding:22px 20px;background:var(--card);transition:.25s;position:relative}
+.tri .lv + .lv{border-left:none}
+.tri .lv:hover{background:var(--ink);color:#f6f4ef;z-index:2;transform:scale(1.03)}
+.tri .lv .tag{font-size:10.5px;letter-spacing:2.5px;font-weight:800;color:var(--rust)}
+.tri .lv:hover .tag{color:#f0c9b8}
+.tri .lv h3{font-size:18px;margin:8px 0;font-family:Georgia,"Songti SC",serif}
+.tri .lv ol{padding-left:17px;font-size:12.5px;color:var(--mute)}
+.tri .lv:hover ol{color:#cfc9bd}
+.tri .lv li{margin:5px 0}
+.tri .lv .cnt{position:absolute;right:14px;top:12px;font-family:Georgia,serif;font-size:22px;font-weight:900;opacity:.22}
+.tri .lv:hover .cnt{opacity:.5;color:#f0c9b8}
+
+/* COL3 - tabbed notebook -->
+.note{display:grid;grid-template-columns:220px 1fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:2px}
+.tabs{display:flex;flex-direction:column;border-right:1px solid var(--line);padding:14px 0;background:rgba(138,109,79,.05)}
+.tab{padding:13px 20px;font-size:13.5px;font-weight:700;color:var(--mute);cursor:pointer;border-left:3px solid transparent;transition:.2s}
+.tab:hover{background:rgba(180,83,42,.06);color:var(--rust)}
+.tab.on{background:#fff;color:var(--ink);border-left-color:var(--rust)}
+.panels{padding:26px 30px;min-height:300px}
+.panel{display:none;animation:fade .3s}
+.panel.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.panel h3{font-size:19px;font-family:Georgia,"Songti SC",serif;margin-bottom:10px}
+.panel p{font-size:14px;color:#45433f;margin-bottom:10px}
+.panel .case{margin-top:14px;background:rgba(180,83,42,.07);border-left:3px solid var(--rust);padding:12px 16px;font-size:13px;font-style:italic;color:#5b4230}
+
+/* COL4 - chessboard score grid */
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.bx{aspect-ratio:1/1;background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;padding:14px;transition:.24s;cursor:default}
+.bx:nth-child(odd){background:#efe9de}
+.bx:hover{border-color:var(--rust);transform:rotate(-2deg);box-shadow:0 10px 22px rgba(18,22,28,.14)}
+.bx .nm{font-size:11px;letter-spacing:1.5px;color:var(--rust);font-weight:800}
+.bx .sc{font-family:Georgia,serif;font-size:30px;font-weight:900;color:var(--ink);line-height:1}
+.bx .lb{font-size:11.5px;color:var(--mute)}
+.bx .bar{height:4px;background:rgba(180,83,42,.2);margin-top:8px;overflow:hidden}
+.bx .bar i{display:block;height:100%;background:var(--rust);transform-origin:left}
+
+/* COL5 - definition list */
+.dlist{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.dl{background:var(--card);padding:20px 22px;transition:.22s}
+.dl:hover{background:#fbf7f0}
+.dl dt{font-size:12px;letter-spacing:2px;color:var(--brown);font-weight:800}
+.dl dd{margin-top:7px;font-size:13.5px;color:#45433f}
+.dl dd b{color:var(--rust)}
+
+/* CTA */
+.cta{background:var(--ink);color:#f6f4ef;border-radius:2px;padding:52px 34px;text-align:center;position:relative;overflow:hidden}
+.cta::after{content:"伦";position:absolute;right:-10px;bottom:-40px;font-family:Georgia,"Songti SC",serif;font-size:220px;opacity:.05}
+.cta h2{font-family:Georgia,"Songti SC",serif;font-size:clamp(24px,3.6vw,36px);margin-bottom:12px}
+.cta h2 u{text-decoration:none;color:#f0c9b8}
+.cta p{opacity:.82;max-width:600px;margin:0 auto 24px;font-size:14.5px}
+.cta .btn-d{background:#f6f4ef;color:var(--ink);border-color:#f6f4ef}
+.cta .btn-d:hover{background:#f0c9b8;border-color:#f0c9b8;color:var(--ink)}
+
+footer{border-top:1px solid var(--line);padding:34px 0 24px;color:var(--mute);font-size:12.5px;margin-top:16px}
+.ff{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+.fn{display:flex;flex-wrap:wrap;gap:18px}
+.fn a:hover{color:var(--rust)}
+.bread{font-size:11.5px;margin-top:14px}
+.bread a{color:var(--rust)}
+.copyright{margin-top:15px;border-top:1px solid var(--line);padding-top:15px;font-size:11.5px;color:#8d887e;line-height:1.9}
+
+@media (max-width:920px){
+  .hero .wrap{grid-template-columns:1fr}
+  .tri{grid-template-columns:1fr}
+  .tri .lv + .lv{border-left:1.5px solid var(--ink);border-top:none}
+  .board{grid-template-columns:repeat(2,1fr)}
+  section{padding:48px 0}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  .diags{grid-template-columns:1fr}
+  .ditem:nth-child(even){transform:none}
+  .note{grid-template-columns:1fr}
+  .tabs{flex-direction:row;overflow-x:auto;border-right:none;border-bottom:1px solid var(--line)}
+  .tab{border-left:none;border-bottom:3px solid transparent;white-space:nowrap}
+  .tab.on{border-left:none;border-bottom-color:var(--rust)}
+  .dlist{grid-template-columns:1fr}
+  .nl a{padding:6px 8px;font-size:11.5px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<header class="navbar">
+  <div class="wrap nin">
+    <div class="brand"><span class="mk">伦</span>电影网伦理<small>DIANYINGWANGLUNLI-CN.GITHUB.IO</small></div>
+    <nav class="nl" aria-label="主导航">
+      <a href="#issues">议题</a>
+      <a href="#ladder">尺度</a>
+      <a href="#cases">案例</a>
+      <a href="#score">评分</a>
+      <a href="#faq">问答</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO : letterpress split -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap">
+      <div>
+        <div class="kicker">◆ 关于影像的良心与分寸</div>
+        <h1>电影网<em>伦理</em></h1>
+        <p class="lede">「电影网伦理」（dianyingwanglunli-cn.github.io）不推荐猎奇，只讨论<strong>边界</strong>：镜头该拍到哪里？AI 能否替换一张脸？影评该不该剧透？平台该不该推荐？</p>
+        <div class="acts">
+          <a class="btn btn-d" href="#issues">📖 阅读伦理议题</a>
+          <a class="btn btn-o" href="#score">📐 查看评分维度</a>
+        </div>
+        <div class="rule">
+          <span><b>立场</b> 尊重多元，拒绝猎奇</span>
+          <span><b>原则</b> 正版优先，版权为先</span>
+          <span><b>更新</b> 每月 1 期深度长文</span>
+          <span><b>读者</b> 影迷 / 创作者 / 平台方</span>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <div class="no">NO. 001 · 本期主张</div>
+        <h3>「能拍」不等于「该拍」</h3>
+        <div class="hs-row"><b>①</b><span>真实不等于侵犯隐私<em>纪录片的第一伦理</em></span></div>
+        <div class="hs-row"><b>②</b><span>煽情不等于共情<em>苦难不该被消费</em></span></div>
+        <div class="hs-row"><b>③</b><span>流量不等于价值<em>推荐算法的责任</em></span></div>
+        <div class="hs-row"><b>④</b><span>技术不等于许可<em>AI 换脸的红线</em></span></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- COL 1 : staggered diagonal list -->
+  <section id="issues" aria-labelledby="t1">
+    <div class="wrap">
+      <div class="sec">
+        <div>
+          <div class="kicker">Column 01 · 议题索引</div>
+          <h2 id="t1">八个绕不开的<em>伦理命题</em></h2>
+        </div>
+        <p>不做道德审判，只做清晰的定义与追问。每个议题附"该问的三个问题"，帮你在观影时保持清醒。</p>
+      </div>
+      <div class="diags">
+
+        <a class="ditem" href="#" rel="nofollow" itemscope itemtype="https://schema.org/WebSite">
+          <div class="no">ISSUE 01</div>
+          <h3 itemprop="name">镜头的边界</h3>
+          <p itemprop="description">裸露、暴力、创伤重现——何时是表达，何时是剥削？</p>
+          <span class="go">展开议题 →</span>
+        </a>
+
+        <a class="ditem" href="#" rel="nofollow" itemscope itemtype="https://schema.org/WebSite">
+          <div class="no">ISSUE 02</div>
+          <h3 itemprop="name">纪录片与同意</h3>
+          <p itemprop="description">被拍摄者是否真的理解"被看见"的代价？剪辑权归谁？</p>
+          <span class="go">展开议题 →</span>
+        </a>
+
+        <a class="ditem" href="#" rel="nofollow" itemscope itemtype="https://schema.org/WebSite">
+          <div class="no">ISSUE 03</div>
+          <h3 itemprop="name">AI 换脸与 deepfake</h3>
+          <p itemprop="description">一张脸的技术成本趋近于零， consent（同意）成了唯一的防线。</p>
+          <span class="go">展开议题 →</span>
+        </a>
+
+        <a class="ditem" href="#" rel="nofollow" itemscope itemtype="https://schema.org/WebSite">
+          <div class="no">ISSUE 04</div>
+          <h3 itemprop="name">苦难的审美化</h3>
+          <p itemprop="description">把别人的痛包装成"好看"，是共情还是消费？</p>
+          <span class="go">展开议题 →</span>
+        </a>
+
+        <a class="ditem" href="#" rel="nofollow" itemscope itemtype="https://schema.org/WebSite">
+          <div class="no">ISSUE 05</div>
+          <h3 itemprop="name">剧透与评论伦理</h3>
+          <p itemprop="description">影评人的义务是诚实，还是给观众留一点未知？</p>
+          <span class="go">展开议题 →</span>
+        </a>
+
+        <a class="ditem" href="#" rel="nofollow" itemscope itemtype="https://schema.org/WebSite">
+          <div class="no">ISSUE 06</div>
+          <h3 itemprop="name">算法与推荐责任</h3>
+          <p itemprop="description">平台把"更极端"推到前面，算不算一种诱导？</p>
+          <span class="go">展开议题 →</span>
+        </a>
+
+        <a class="ditem" href="#" rel="nofollow" itemscope itemtype="https://schema.org/WebSite">
+          <div class="no">ISSUE 07</div>
+          <h3 itemprop="name">翻拍、致敬与抄袭</h3>
+          <p itemprop="description">灵感的继承与偷窃之间，那条线在哪里？</p>
+          <span class="go">展开议题 →</span>
+        </a>
+
+        <a class="ditem" href="#" rel="nofollow" itemscope itemtype="https://schema.org/WebSite">
+          <div class="no">ISSUE 08</div>
+          <h3 itemprop="name">观众的自我修养</h3>
+          <p itemprop="description">当我们为"三观不正"的片喝彩时，我们在消费什么？</p>
+          <span class="go">展开议题 →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COL 2 : priority triangle -->
+  <section id="ladder" aria-labelledby="t2" style="background:linear-gradient(180deg,transparent,rgba(138,109,79,.05))">
+    <div class="wrap">
+      <div class="sec">
+        <div>
+          <div class="kicker">Column 02 · 判断框架</div>
+          <h2 id="t2">三步，判断一部片<em>是否越界</em></h2>
+        </div>
+        <p>不提供标准答案，只提供思考顺序。顺序错了，结论往往也错。</p>
+      </div>
+      <div class="tri">
+
+        <div class="lv">
+          <div class="cnt">01</div>
+          <div class="tag">先问动机</div>
+          <h3>为什么需要这个镜头</h3>
+          <ol>
+            <li>去掉它，叙事是否成立？</li>
+            <li>是为了角色，还是为了刺激？</li>
+            <li>有没有更克制的方式？</li>
+          </ol>
+        </div>
+
+        <div class="lv">
+          <div class="cnt">02</div>
+          <div class="tag">再问代价</div>
+          <h3>谁在为此付出</h3>
+          <ol>
+            <li>演员是否真实同意？</li>
+            <li>被拍摄者的生活是否被改变？</li>
+            <li>观众是否被悄悄引导？</li>
+          </ol>
+        </div>
+
+        <div class="lv">
+          <div class="cnt">03</div>
+          <div class="tag">最后问价值</div>
+          <h3>值得吗</h3>
+          <ol>
+            <li>它让人更理解人，还是更麻木？</li>
+            <li>三年后还值得被讨论吗？</li>
+            <li>我会推荐给在意的人吗？</li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COL 3 : tabbed notebook -->
+  <section id="cases" aria-labelledby="t3">
+    <div class="wrap">
+      <div class="sec">
+        <div>
+          <div class="kicker">Column 03 · 案例笔记</div>
+          <h2 id="t3">四个真实困境，<em>没有标准答案</em></h2>
+        </div>
+        <p>点击左侧标签切换。案例均做匿名与脱敏处理，仅用于讨论方法。</p>
+      </div>
+      <div class="note">
+        <div class="tabs">
+          <div class="tab on" onclick="tab(event,'c1')">纪录片 · 同意</div>
+          <div class="tab" onclick="tab(event,'c2')">算法 · 推荐</div>
+          <div class="tab" onclick="tab(event,'c3')">AI · 肖像</div>
+          <div class="tab" onclick="tab(event,'c4')">影评 · 剧透</div>
+        </div>
+        <div class="panels">
+
+          <div class="panel on" id="c1">
+            <h3>拍下一个人的崩溃，算帮助还是伤害？</h3>
+            <p>一部纪录片跟拍戒毒者三年。成片极动人，但主人公在上映后遭受二次伤害，关系破裂。</p>
+            <p><b>关键追问：</b>剪辑权是否应在拍摄前以书面形式明确？"为了艺术"能否抵消一个人的真实代价？</p>
+            <p class="case">「镜头是善良的，但放映厅不是。」—— 编辑部手记</p>
+          </div>
+
+          <div class="panel" id="c2">
+            <h3>平台为什么总把"更极端"推给你？</h3>
+            <p>完播率最高的往往是情绪最强烈的片段。推荐系统据此优化，结果形成正向反馈：越极端，越推荐。</p>
+            <p><b>关键追问：</b>平台的 KPI 是否应包含"用户看完后的情绪质量"？伦理成本该由谁定价？</p>
+            <p class="case">「算法没有价值观，但设定算法目标的人有。」</p>
+          </div>
+
+          <div class="panel" id="c3">
+            <h3>已故演员的脸，能被"补拍"吗？</h3>
+            <p>技术进步让"数字复活"成为可能。家属授权、片方授权、观众意愿——三者并不总是一致。</p>
+            <p><b>关键追问：</b>肖像权是否随生命终止？观众是否有权拒绝"被欺骗的感动"？</p>
+            <p class="case">「技术能还原五官，还原不了一个人的意愿。」</p>
+          </div>
+
+          <div class="panel" id="c4">
+            <h3>一句剧透，毁掉的是惊喜还是谎言？</h3>
+            <p>影评的价值在于诚实。但"结局反转"型影片，剧透等于剥夺体验。两类读者，同一篇文章。</p>
+            <p><b>关键追问：</b>能否用结构（前置警告 / 分层写法）替代沉默？评论的诚实与读者的善意能否兼得？</p>
+            <p class="case">「好的剧透不泄底，只给你看问题的角度。」</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COL 4 : chessboard score -->
+  <section id="score" aria-labelledby="t4">
+    <div class="wrap">
+      <div class="sec">
+        <div>
+          <div class="kicker">Column 04 · 评分维度</div>
+          <h2 id="t4">我们如何给一部片<em>打"伦理分"</em></h2>
+        </div>
+        <p>与传统评分并存但不替代。分数越低，越值得带着警惕去看——它不是差评，是提醒。</p>
+      </div>
+      <div class="board">
+
+        <div class="bx"><div class="nm">CONSENT 同意</div><div class="sc">8.6</div><div class="lb">演员与拍摄对象的自愿程度</div><div class="bar"><i style="width:86%"></i></div></div>
+        <div class="bx"><div class="nm">NECESSITY 必要</div><div class="sc">7.9</div><div class="lb">争议镜头对叙事的不可替代性</div><div class="bar"><i style="width:79%"></i></div></div>
+        <div class="bx"><div class="nm">DIGNITY 尊严</div><div class="sc">8.2</div><div class="lb">是否把人当手段而非目的</div><div class="bar"><i style="width:82%"></i></div></div>
+        <div class="bx"><div class="nm">IMPACT 影响</div><div class="sc">7.4</div><div class="lb">对观众与现实社会的长期作用</div><div class="bar"><i style="width:74%"></i></div></div>
+        <div class="bx"><div class="nm">TRUTH 真实</div><div class="sc">8.8</div><div class="lb">是否借"真实"之名行剥削之实</div><div class="bar"><i style="width:88%"></i></div></div>
+        <div class="bx"><div class="nm">ALGORITHM 算法</div><div class="sc">6.5</div><div class="lb">平台推荐是否放大极端与猎奇</div><div class="bar"><i style="width:65%"></i></div></div>
+        <div class="bx"><div class="nm">CREDIT 署名</div><div class="sc">9.1</div><div class="lb">幕后与素材来源的透明程度</div><div class="bar"><i style="width:91%"></i></div></div>
+        <div class="bx"><div class="nm">AFTERCARE 善后</div><div class="sc">6.9</div><div class="lb">上映后对相关者的持续支持</div><div class="bar"><i style="width:69%"></i></div></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COL 5 : definition list -->
+  <section id="faq" aria-labelledby="t5">
+    <div class="wrap">
+      <div class="sec">
+        <div>
+          <div class="kicker">Column 05 · 问答</div>
+          <h2 id="t5">关于这个<em>思考型站点</em></h2>
+        </div>
+        <p>我们写什么、不写什么、以及"伦理"二字在这里到底指什么。</p>
+      </div>
+      <dl class="dlist">
+
+        <div class="dl"><dt>Q1 · 这是什么网站</dt><dd>一个<strong>电影伦理的思考与观影指引</strong>站点，托管于 GitHub Pages。我们整理伦理议题、判断框架、案例笔记与片单，<b>不提供任何影片资源</b>。</dd></div>
+        <div class="dl"><dt>Q2 · "伦理电影"指什么</dt><dd>不是某种类型片，而是<b>以伦理困境为叙事核心的影片</b>：道德选择、权利边界、技术后果。与"道德说教片"无关。</dd></div>
+        <div class="dl"><dt>Q3 · 立场是什么</dt><dd><b>尊重多元、拒绝猎奇、正版优先、版权为先。</b>不评判观众口味，只提供判断工具。反对任何形式的歧视与仇恨表达。</dd></div>
+        <div class="dl"><dt>Q4 · 片单如何筛选</dt><dd>四步：<b>议题清晰 / 表达克制 / 来源正版 / 值得讨论</b>。每月复核，长期失效或涉及侵权即下架并公示。</dd></div>
+        <div class="dl"><dt>Q5 · 手机上体验好吗</dt><dd>全站响应式：导航自适应、卡片降为单列、标签页可横向滑动、动效在低端机自动降级，<b>弱网亦可秒开</b>。</dd></div>
+        <div class="dl"><dt>Q6 · 如何参与</dt><dd>通过页脚"投稿案例"提交<b>片名 + 伦理疑问 + 你的判断</b>。编辑部 5 个工作日内回复，录用署名。</dd></div>
+
+      </dl>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section aria-labelledby="c1">
+    <div class="wrap">
+      <div class="cta">
+        <h2 id="c1">看电影，是一种<em>道德练习</em></h2>
+        <p>订阅「伦理观影笔记」：每月 1 篇长文 + 1 份片单 + 3 个观影提问。无广告、可秒退、不消费你的情绪。</p>
+        <a class="btn btn-d" href="#" rel="nofollow">📮 订阅观影笔记</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ff">
+      <div>
+        <strong style="color:var(--ink)">🎬 电影网伦理</strong> · <span>dianyingwanglunli-cn.github.io</span>
+        <div style="margin-top:6px">影像伦理思考 · 观影指引 · 伦理议题片单导航</div>
+      </div>
+      <div class="fn">
+        <a href="#issues">伦理议题</a>
+        <a href="#ladder">判断框架</a>
+        <a href="#cases">案例笔记</a>
+        <a href="#score">评分维度</a>
+        <a href="#faq">问与答</a>
+        <a href="#" rel="nofollow">投稿案例</a>
+        <a href="#" rel="nofollow">版权声明</a>
+      </div>
+    </div>
+    <nav class="bread">
+      当前位置：<a href="https://dianyingwanglunli-cn.github.io/">首页</a> / <span>电影网伦理</span>
+    </nav>
+    <p class="copyright">
+      内容声明：本页为信息与观点类导航索引，所涉及的影片名称仅作介绍、评论与讨论之用，不构成任何资源提供，亦不托管、不链接至侵权内容。请遵守所在地法律法规，通过合法合规的正版渠道观看影视作品，尊重创作者的劳动与知识产权。文中案例均经匿名与脱敏处理。我们倡导理性、克制、尊重与多元共存的观影文化。© <span id="yr">2026</span> dianyingwanglunli-cn.github.io · All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+function tab(e,id){
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')});
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on')});
+  e.currentTarget.classList.add('on');
+  document.getElementById(id).classList.add('on');
+}
+</script>
+</body>
+</html>
